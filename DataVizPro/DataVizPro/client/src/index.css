@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Modern Restaurant Theme Colors */
+  --background: 0 0% 98%; /* #fafafa */
+  --foreground: 0 0% 5%; /* #0d0d0d */
+  --muted: 0 0% 94%; /* #f0f0f0 */
+  --muted-foreground: 0 0% 45%; /* #737373 */
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 5%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 5%;
+  --border: 0 0% 90%; /* #e5e5e5 */
+  --input: 0 0% 96%; /* #f5f5f5 */
+  --primary: 16 100% 66%; /* #ff7533 - Warm orange */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
+  --accent: 24 95% 53%; /* #f97316 - Accent orange */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 16 100% 66%;
+  --radius: 0.75rem;
+  
+  /* Restaurant specific colors */
+  --restaurant-orange: 16 100% 66%; /* #ff7533 */
+  --restaurant-orange-hover: 16 100% 60%; /* #ff6b1a */
+  --restaurant-orange-light: 16 100% 95%; /* #fff4f0 */
+  --restaurant-gold: 45 95% 55%; /* #f4ca16 */
+  --restaurant-dark: 0 0% 13%; /* #212121 */
+  --restaurant-gray: 0 0% 40%; /* #666666 */
+  --success: 142 76% 36%; /* #16a34a */
+  --warning: 38 92% 50%; /* #ea580c */
+}
+
+.dark {
+  --background: 0 0% 7%; /* #121212 */
+  --foreground: 0 0% 98%;
+  --muted: 0 0% 13%; /* #212121 */
+  --muted-foreground: 0 0% 64%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 0 0% 98%;
+  --card: 0 0% 10%; /* #1a1a1a */
+  --card-foreground: 0 0% 98%;
+  --border: 0 0% 20%; /* #333333 */
+  --input: 0 0% 13%; /* #212121 */
+  --primary: 16 100% 66%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 13%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 24 95% 53%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 16 100% 66%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .restaurant-gradient {
+    background: linear-gradient(135deg, hsl(var(--restaurant-orange)) 0%, hsl(var(--accent)) 100%);
+  }
+  
+  .restaurant-card {
+    @apply bg-white rounded-xl shadow-sm border border-border transition-all duration-200 hover:shadow-md;
+  }
+  
+  .restaurant-button-primary {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .restaurant-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800;
+  }
+  
+  .food-image {
+    @apply w-full h-24 object-cover rounded-lg bg-gray-100;
+  }
+  
+  .status-pending { @apply bg-yellow-100 text-yellow-800; }
+  .status-confirmed { @apply bg-blue-100 text-blue-800; }
+  .status-preparing { @apply bg-orange-100 text-orange-800; }
+  .status-ready { @apply bg-green-100 text-green-800; }
+  .status-delivered { @apply bg-green-100 text-green-800; }
+  .status-cancelled { @apply bg-red-100 text-red-800; }
+}
+
+@layer utilities {
+  .text-restaurant-orange { color: hsl(var(--restaurant-orange)); }
+  .bg-restaurant-orange { background-color: hsl(var(--restaurant-orange)); }
+  .text-restaurant-dark { color: hsl(var(--restaurant-dark)); }
+  .text-restaurant-gray { color: hsl(var(--restaurant-gray)); }
+  
+  .shadow-restaurant {
+    box-shadow: 0 4px 20px -2px rgba(255, 117, 51, 0.1);
+  }
+}
